@@ -4,5 +4,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	   					   http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id = "taskDao" class = "com.uday.taskprocessor.task.dao.TaskDaoImpl"/>
+    <bean id="taskQueue" class = "com.uday.taskprocessor.task.queue.TaskQueue"/>
+    <bean id = "taskGiverManager" class = "com.uday.taskprocessor.task.give.TaskGiverManager">
+        <constructor-arg value="10"/>
+        <constructor-arg ref="taskQueue"/>
+        <constructor-arg ref = "taskDao"/>
+    </bean>
+
+
+
+
+
+
 
 </beans>
